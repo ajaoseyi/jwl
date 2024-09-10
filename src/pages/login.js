@@ -15,7 +15,7 @@ const Login = () => {
 		const timeout = async () =>
 			setTimeout(() => {
 				if (
-					email !== "abigailjones050@gmail.com" ||
+					email.toLocaleLowerCase() !== "abigailjones050@gmail.com" ||
 					password !== "Bryanwife110"
 				) {
 					setError(true);
