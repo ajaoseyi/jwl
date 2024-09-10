@@ -37,6 +37,7 @@ const Login = () => {
 			</div>
 			<div className="mx-4 min-h-screen flex justify-center items-center">
 				<div className="bg-[#262450] w-full shadow-2xl md:mx-96 text-white py-6 flex justify-center items-center rounded-2xl  ">
+					
 					<div className="w-full px-10">
 						<label
 							for="about"
@@ -50,7 +51,10 @@ const Login = () => {
 								name="about"
 								rows="3"
 								value={email}
-								onChange={(e) => setEmail(e.target.value)}
+								onChange={(e) => {
+									setError(false);
+									setEmail(e.target.value);
+								}}
 								className="block px-3 w-full rounded-md focus:outline-none border-0 py-2  text-white bg-[#19173D] shadow-sm  sm:text-sm sm:leading-6 "
 							/>
 						</div>
@@ -66,7 +70,10 @@ const Login = () => {
 									type="password"
 									rows="3"
 									value={password}
-									onChange={(e) => setPassword(e.target.value)}
+									onChange={(e) => {
+										setError(false);
+										setPassword(e.target.value);
+									}}
 									className="block w-full rounded-md px-3  focus:outline-none border-0 py-2  text-white bg-[#19173D] shadow-sm  sm:text-sm sm:leading-6 "
 								/>
 								{error && (
@@ -80,7 +87,7 @@ const Login = () => {
 						<button
 							disabled={email === "" || password === "" || loading}
 							onClick={onSubmit}
-							className="text-white text-sm bg-[#7B78AA] px-5 py-2 rounded-lg mt-5 disabled:opacity-60"
+							className="text-white text-sm bg-[#7B78AA] px-5 py-2 rounded-lg mt-5 disabled:opacity-60 hover:opacity-75"
 						>
 							{loading ? <Spinner size="sm" className="" /> : "Submit"}
 						</button>
